@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title> for royzdev </title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        @font-face {
+            font-family: 's1n1f.woff';
+            font-style: bold;
+            src: url('google/s1n1f.woff') format('truetype');
+            font-weight: normal;
+            font-style: normal;
+        }
+
+        body {
+            background-image: url(img/fon.gif);
+            backdrop-filter: blur(10px);
+            font-style: linear-gradient(43deg, #321f75 0%, #6228cc 60%, #321f75 100%);
+            background-size: 300%;
+            background-size: cover;
+            color: rgba(255, 255, 255, 0.952);
+            font-family: 's1n1f.woff', sans-serif;
+            text-align: center;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            position: relative;
+        }
+
+        .content {
+            text-align: center;
+            z-index: 1;
+            background-color: rgba(0, 0, 0, 0.7);
+            padding: 60px;
+            border-radius: 15px;
+            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.5);
+            position: relative;
+        }
+
+        .round {
+            border-radius: 50%;
+            width: 125px;
+            display: block;
+            margin: 20px auto;
+        }
+
+        h1 {
+            font-size: 32px;
+        }
+
+        p {
+            font-size: 16px;
+        }
+
+        #animated-title {
+            font-size: 30px;
+            margin-bottom: 10px;
+            white-space: pre;
+            overflow: hidden;
+        }
+
+        .fade-in {
+            opacity: 0;
+            transform: translateY(20px);
+            animation: fadeInMove 1s forwards;
+            display: inline-block;
+            color: white;
+        }
+
+        @keyframes fadeInMove {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .icons a {
+            margin: 0 1px;
+            color: rgba(255, 255, 255, 0.986);
+            font-size: 24px;
+            text-decoration: none;
+        }
+
+        .audio-player {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+        audio {
+            display: none;
+        }
+
+        .controls {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            color: rgb(250, 73, 41);
+        }
+
+        .controls button {
+            background: none;
+            border: none;
+            color: rgb(250, 73, 41);
+            font-size: 24px;
+            cursor: pointer;
+            transition: color 0.2s ease;
+        }
+
+        .controls button:hover {
+            color: #3287e7;
+        }
+
+        .progress-container {
+            position: relative;
+            width: 300px;
+            height: 5px;
+            background: rgba(255, 255, 255, 0.062);
+            border-radius: 2.5px;
+            cursor: pointer;
+        }
+
+        .progress-bar {
+            position: absolute;
+            top: 0;
+            left: 0;
+            height: 100%;
+            background: rgb(80, 58, 204);
+            border-radius: 2.5px;
+            width: 0;
+        }
+
+        .volume-slider {
+            -webkit-appearance: none;
+            width: 100px;
+            height: 5px;
+            background: rgba(255, 255, 255, 0.062);
+            border-radius: 2.5px;
+            outline: none;
+            cursor: pointer;
+        }
+
+        .volume-slider::-webkit-slider-thumb {
+            -webkit-appearance: none;
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            background: rgb(80, 58, 204);
+            cursor: pointer;
+        }
+
+        .element {
+            background-image: linear-gradient(#6e4aff, #49A16C);
+        }   
+
+        .style-color {
+            background-image: linear-gradient(left,rgb(177, 177, 177),rgb(201, 147, 147));
+            background-size: cover;
+            background-position: 50% 50%;
+            border-radius: 10px;
+        }
+
+        .fontawesomeicon::before {
+            display: inline-block;
+            text-rendering: auto;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        .Discord::before {
+            font: var(--fa-font-brands);
+            content: ' \f392';
+        }
+        </style>
+</head>
+<body>
+    <div class="content">
+        <img src="img/test-img.jpg" alt="royzdev" class="round">
+        <div id="animated-title"></div>
+        <p class="style-color" style="font-display: empty-cells show;"> my bro: royz </p>
+
+        <div class="icons">
+            <a href="https://t.me/ecl1ps9r" target="_blank"><i class="fab fa-telegram-plane"></i></a>
+            <a href="https://vk.com/s1n1f" target="_blank"><i class="fab fa-vk"></i></a>
+            <a href="https://discord.gg/terractov" target="_blank"><i class="fab fa-discord"></i></a>
+            <a href="https://doxbin.org/user/s1n1or" target="_blank"><h5>fortuna 812 - slut</a></h5>
+        </div>
+
+        <div class="audio-player">
+            <div class="controls">
+                <button id="play-pause"><i class="fas fa-play"></i></button>
+                <div class="progress-container">
+                    <div class="progress-bar" id="progress-bar"></div>
+                </div>
+                <input type="range" id="volume" class="volume-slider" min="0" max="1" step="0.01">
+                <button id="mute-unmute"><i class="fas fa-volume-up"></i></button>
+            </div>
+        </div>
+
+        <audio id="audio" src="music/music.mp3"></audio>
+    </div>
+
+    <script>
+        const text = "s1n1f";
+        const textContainer = document.getElementById('animated-title');
+        let index = 0;
+
+        function showNextLetter() {
+            const span = document.createElement('span');
+            span.className = 'fade-in';
+            span.textContent = text[index];
+            textContainer.appendChild(span);
+            index++;
+
+            if (index < text.length) {
+                setTimeout(showNextLetter, 750);
+            }
+        }
+
+        showNextLetter();
+
+        const audio = document.getElementById('audio');
+        const playPauseBtn = document.getElementById('play-pause');
+        const muteUnmuteBtn = document.getElementById('mute-unmute');
+        const progressBar = document.getElementById('progress-bar');
+        const volumeSlider = document.getElementById('volume');
+
+        let isPlaying = false;
+
+        playPauseBtn.addEventListener('click', () => {
+            if (isPlaying) {
+                audio.pause();
+                playPauseBtn.innerHTML = '<i class="fas fa-play"></i>';
+            } else {
+                audio.play();
+                playPauseBtn.innerHTML = '<i class="fas fa-pause"></i>';
+            }
+            isPlaying = !isPlaying;
+        });
+
+        audio.addEventListener('timeupdate', () => {
+            const progress = (audio.currentTime / audio.duration) * 100;
+            progressBar.style.width = `${progress}%`;
+        });
+
+        volumeSlider.addEventListener('input', (e) => {
+            audio.volume = e.target.value;
+        });
+
+        muteUnmuteBtn.addEventListener('click', () => {
+            audio.muted = !audio.muted;
+            muteUnmuteBtn.innerHTML = audio.muted ? '<i class="fas fa-volume-mute"></i>' : '<i class="fas fa-volume-up"></i>';
+        });
+
+        document.querySelector('.progress-container').addEventListener('click', (e) => {
+            const width = e.currentTarget.clientWidth;
+            const clickX = e.offsetX;
+            const duration = audio.duration;
+            audio.currentTime = (clickX / width) * duration;
+        });
+    </script>
+</body>
+</html>
